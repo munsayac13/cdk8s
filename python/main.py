@@ -10,6 +10,9 @@ from src.externalSecrets.helmExternalSecretsValues import HelmExternalSecretsVal
 from src.redis.helmRedisValues import HelmRedisValues
 from src.certManager.helmCertManagerValues import HelmCertManagerValues
 
+from src.externalSecrets.ExternalSecrets import IMExternalSecrets
+
+
 # storage
 from src.storage.storageClass.localStorage import LocalStorageClass
 from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
@@ -27,5 +30,8 @@ RedisMasterPersistentVolume(app, "redis-master-pv")
 HelmExternalSecretsValues(app, "external-secrets-from-helm")
 HelmRedisValues(app, "redis-from-helm")
 HelmCertManagerValues(app, "cert-manager-from-helm")
+
+# Imported Apps
+IMExternalSecrets(app, "external-secrets-from-imports")
 
 app.synth()
