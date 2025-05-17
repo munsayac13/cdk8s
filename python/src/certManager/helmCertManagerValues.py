@@ -1,10 +1,20 @@
 from constructs import Construct
 from cdk8s import App, Chart, Helm
 import cdk8s_plus_32 as kplus
+from imports import k8s
 
 class HelmCertManagerValues(Chart):
     def __init__(self, scope: Construct, id: str):
         super().__init__(scope, id)
+
+        certmanagernamespace = "cert-manager"
+
+        k8s.KubeNamespace(self, certmanagernamespace + "-namespace", metadata={
+            'name': certmanagernamespace,
+            'labels': {
+                'name': certmanagernamespace,
+            },
+        })
 
         Helm(self, id, chart="cert-manager/cert-manager", version="v1.17.2", values={
             "crds": {

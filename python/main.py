@@ -6,7 +6,7 @@ from imports import k8s
 import cdk8s_plus_32 as kplus
 
 # apps
-from src.externalSecrets.externalSecrets import ExternalSecrets
+from src.externalSecrets.helmExternalSecretsValues import HelmExternalSecretsValues
 from src.redis.helmRedisValues import HelmRedisValues
 from src.certManager.helmCertManagerValues import HelmCertManagerValues
 
@@ -18,14 +18,13 @@ from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
 
 app = App()
 
-ExternalSecrets(app, "external-secrets")
-
 # Persisten Volumes
 LocalStorageClass(app, "local-storage-storageclass")
 RedisMasterPersistentVolume(app, "redis-master-pv")
 #JustAnotherPersistentVolume(app, "justanother-pv")
 
-# Helm
+# Helm and Deployments
+HelmExternalSecretsValues(app, "external-secrets-from-helm")
 HelmRedisValues(app, "redis-from-helm")
 HelmCertManagerValues(app, "cert-manager-from-helm")
 
