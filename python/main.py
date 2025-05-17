@@ -8,6 +8,7 @@ import cdk8s_plus_32 as kplus
 # apps
 from src.externalSecrets.externalSecrets import ExternalSecrets
 from src.redis.helmRedisValues import HelmRedisValues
+from src.certManager.helmCertManagerValues import HelmCertManagerValues
 
 # storage
 from src.storage.storageClass.localStorage import LocalStorageClass
@@ -26,5 +27,6 @@ RedisMasterPersistentVolume(app, "redis-master-pv")
 
 # Helm
 HelmRedisValues(app, "redis-from-helm")
+HelmCertManagerValues(app, "cert-manager-from-helm")
 
 app.synth()

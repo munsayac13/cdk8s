@@ -103,7 +103,7 @@ metadata:
   name: redis-from-helm-c8e1e81c
   namespace: default
 data:
-  redis-password: VndGa1JzNXB5TA==
+  redis-password: UnBhUWZUMUVwcQ==
 type: Opaque
 ---
 apiVersion: v1
@@ -455,7 +455,7 @@ spec:
         checksum/configmap: 2a9ab4a5432825504d910f022638674ce88eaefe9f9f595ad8bc107377d104fb
         checksum/health: aff24913d801436ea469d8d374b2ddb3ec4c43ee7ab24663d5f8ff1a1b6991a9
         checksum/scripts: f6aabdcb285c2a6a5e34f7f694ee63d4b6cef45b8bd2978406576755fbdfd7a3
-        checksum/secret: b8ab0cdcb655e5fbb13b3a58d1931c40be5a651a0228dfd6a6f8162745598d7b
+        checksum/secret: 78355ccf305ac4e060d5dd9d7540ef0448be947380f6627aaa1c1e6b62d40512
         prometheus.io/port: "9121"
         prometheus.io/scrape: "true"
       labels:
@@ -704,7 +704,7 @@ spec:
         checksum/configmap: 2a9ab4a5432825504d910f022638674ce88eaefe9f9f595ad8bc107377d104fb
         checksum/health: aff24913d801436ea469d8d374b2ddb3ec4c43ee7ab24663d5f8ff1a1b6991a9
         checksum/scripts: f6aabdcb285c2a6a5e34f7f694ee63d4b6cef45b8bd2978406576755fbdfd7a3
-        checksum/secret: b07e82c565af0e2e688139c221b53bb500b834e1600cf46721fe83aa2a010d0c
+        checksum/secret: 3cf9bbc3159d7f35a60a11ace58dfcd4b3d42c54939058a23482ff8504fc2638
         prometheus.io/port: "9121"
         prometheus.io/scrape: "true"
       labels:
