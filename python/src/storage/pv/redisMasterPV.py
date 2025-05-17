@@ -24,7 +24,7 @@ if __name__ == "__main__":
     app.synth()
     current_directory = os.getcwd() + "/dist"
     with open(current_directory + "/redis-master-pv.k8s.yaml", "a") as file:
-        file.write("  local:\n    path: /data/redis-master")
+        file.write("  local:\n    path: /data/redis-master\n")
         file.write("  nodeAffinity:\n")
         file.write("    required:\n")
         file.write("      nodeSelectorTerms:\n")
