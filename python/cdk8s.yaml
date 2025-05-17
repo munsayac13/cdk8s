@@ -1,0 +1,11 @@
+language: python
+app: pipenv run python main.py
+imports:
+  - k8s
+  - helm:oci://registry-1.docker.io/bitnamicharts/jenkins@13.6.6
+  - helm:https://charts.jetstack.io/cert-manager@1.15.5
+  - helm:https://charts.external-secrets.io/external-secrets@0.17.0
+  - helm:https://fluxcd-community.github.io/helm-charts/flux2@2.15.0
+  - middlewares.traefik.io.yaml
+  - certificates.cert-manager.io.yaml
+  - cert-manager.io.yaml
