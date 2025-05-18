@@ -12,11 +12,12 @@ from src.certManager.helmCertManagerValues import HelmCertManagerValues
 
 from src.externalSecrets.ExternalSecrets import IMExternalSecrets
 from src.certManager.CertManager import IMCertManager
-
+from src.redis.Valkey import IMValkey
 
 # storage
 from src.storage.storageClass.localStorage import LocalStorageClass
 from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
+from src.storage.pv.valkeyPrimaryPV import ValkeyPrimaryPersistentVolume
 
 #from src.storage.pv.justAnotherPV import JustAnotherPersistentVolume
 
@@ -35,5 +36,6 @@ HelmCertManagerValues(app, "cert-manager-from-helm")
 # Imported Apps
 IMExternalSecrets(app, "external-secrets-from-imports")
 IMCertManager(app, "cert-manager-from-imports")
+IMValkey(app, "valkey-from-imports")
 
 app.synth()

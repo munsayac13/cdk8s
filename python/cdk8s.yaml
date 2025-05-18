@@ -9,3 +9,4 @@ imports:
   - middlewares.traefik.io.yaml
   - certificates.cert-manager.io.yaml
   - cert-manager.io.yaml
+  - helm:oci://registry-1.docker.io/bitnamicharts/valkey@3.0.6
