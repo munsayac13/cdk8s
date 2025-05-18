@@ -16,6 +16,7 @@ cdk8s import helm:https://charts.jetstack.io/cert-manager@1.15.5
 cdk8s import helm:https://charts.external-secrets.io/external-secrets@0.17.0
 cdk8s import helm:https://fluxcd-community.github.io/helm-charts/flux2@2.15.0
 cdk8s import helm:oci://registry-1.docker.io/bitnamicharts/valkey@3.0.6
+cdk8s import helm:https://helm.releases.hashicorp.com/vault@0.30.0
 
 ## IMPORT CRDS
 kubectl get crd -o yaml middlewares.traefik.io > middlewares.traefik.io.yaml
