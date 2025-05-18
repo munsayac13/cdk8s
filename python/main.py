@@ -11,6 +11,7 @@ from src.redis.helmRedisValues import HelmRedisValues
 from src.certManager.helmCertManagerValues import HelmCertManagerValues
 
 from src.externalSecrets.ExternalSecrets import IMExternalSecrets
+from src.certManager.CertManager import IMCertManager
 
 
 # storage
@@ -33,5 +34,6 @@ HelmCertManagerValues(app, "cert-manager-from-helm")
 
 # Imported Apps
 IMExternalSecrets(app, "external-secrets-from-imports")
+IMCertManager(app, "cert-manager-from-imports")
 
 app.synth()
