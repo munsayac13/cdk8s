@@ -2,6 +2,7 @@ from constructs import Construct
 from cdk8s import App, Chart, Size
 import os
 import cdk8s_plus_32 as kplus
+import appendPathAndNode as append
 
 class ValkeyPrimaryPersistentVolume(Chart):
     def __init__(self, scope: Construct, id: str):
@@ -19,15 +20,4 @@ if __name__ == "__main__":
     app = App()
     ValkeyPrimaryPersistentVolume(app, "valkey-primary-pv")
     app.synth()
-    current_directory = os.getcwd() + "/dist"
-    with open(current_directory + "/valkey-primary-pv.k8s.yaml", "a") as file:
-        file.write("  local:\n    path: /data/valkey-primary\n")
-        file.write("  nodeAffinity:\n")
-        file.write("    required:\n")
-        file.write("      nodeSelectorTerms:\n")
-        file.write("      - matchExpressions:\n")
-        file.write("        - key: kubernetes.io/hostname\n")
-        file.write("          operator: In\n")
-        file.write("          values:\n")
-        file.write("          - master-2\n")
-        file.close()
+    append.AppendToPVFile("valkey-primary-pv.k8s.yaml", "/data/valkey-primary", "master-2")
