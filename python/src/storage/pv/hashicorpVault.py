@@ -21,15 +21,3 @@ if __name__ == "__main__":
     VaultPersistentVolume(app, "vault-pv")
     app.synth()
     append.AppendToPVFile("vault-pv.k8s.yaml", "/data/vault", "master-1")
-    #current_directory = os.getcwd() + "/dist"
-    #with open(current_directory + "/vault-pv.k8s.yaml", "a") as file:
-    #    file.write("  local:\n    path: /data/vault\n")
-    #    file.write("  nodeAffinity:\n")
-    #    file.write("    required:\n")
-    #    file.write("      nodeSelectorTerms:\n")
-    #    file.write("      - matchExpressions:\n")
-    #    file.write("        - key: kubernetes.io/hostname\n")
-    #    file.write("          operator: In\n")
-    #    file.write("          values:\n")
-    #    file.write("          - master-1\n")
-    #    file.close()
