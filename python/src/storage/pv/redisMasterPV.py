@@ -3,7 +3,7 @@ from cdk8s import App, Chart, Size
 #from imports import k8s
 import os
 import cdk8s_plus_32 as kplus
-import appendPathAndNode as append
+
 
 class RedisMasterPersistentVolume(Chart):
     def __init__(self, scope: Construct, id: str):
@@ -30,6 +30,7 @@ class RedisMasterPersistentVolume(Chart):
         )
         
 if __name__ == "__main__":
+    import appendPathAndNode as append
     app = App()
     RedisMasterPersistentVolume(app, "redis-master-pv")
     app.synth()

@@ -2,7 +2,7 @@ from constructs import Construct
 from cdk8s import App, Chart, Size
 import os
 import cdk8s_plus_32 as kplus
-import appendPathAndNode as append
+
 
 class ValkeyPrimaryPersistentVolume(Chart):
     def __init__(self, scope: Construct, id: str):
@@ -17,6 +17,7 @@ class ValkeyPrimaryPersistentVolume(Chart):
         )
         
 if __name__ == "__main__":
+    import appendPathAndNode as append
     app = App()
     ValkeyPrimaryPersistentVolume(app, "valkey-primary-pv")
     app.synth()

@@ -1,0 +1,12 @@
+server:
+  dataStorage:
+    accessMode: ReadWriteOnce
+    enabled: true
+    mountPath: /vault/data
+    size: 10Gi
+    storageClass: local-storage
+ui:
+  enabled: true
+  externalPort: 8200
+  serviceType: ClusterIP
+  targetPort: 8200
