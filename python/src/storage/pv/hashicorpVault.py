@@ -3,8 +3,6 @@ from cdk8s import App, Chart, Size
 import os
 import cdk8s_plus_32 as kplus
 
-
-
 class VaultPersistentVolume(Chart):
     def __init__(self, scope: Construct, id: str):
         super().__init__(scope, id)

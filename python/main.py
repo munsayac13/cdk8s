@@ -19,9 +19,10 @@ from src.hashicorpVault.Vault import IMVault
 from src.storage.storageClass.localStorage import LocalStorageClass
 from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
 from src.storage.pv.valkeyPrimaryPV import ValkeyPrimaryPersistentVolume
-
-
 #from src.storage.pv.justAnotherPV import JustAnotherPersistentVolume
+
+# service accounts
+from src.serviceAccounts.createServiceAccount import CreateServiceAccountViewAccess, CreateServiceAccountClusterAdminAccess
 
 app = App()
 
@@ -40,5 +41,9 @@ IMExternalSecrets(app, "external-secrets-from-imports")
 IMCertManager(app, "cert-manager-from-imports")
 IMValkey(app, "valkey-from-imports")
 IMVault(app, "vault-from-imports")
+
+# Service Accounts
+CreateServiceAccountViewAccess(app, 'nodelocal-ro', 'default')
+CreateServiceAccountClusterAdminAccess(app, 'nodelocal-admin', 'default')
 
 app.synth()
