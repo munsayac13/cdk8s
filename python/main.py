@@ -22,7 +22,7 @@ from src.storage.pv.valkeyPrimaryPV import ValkeyPrimaryPersistentVolume
 #from src.storage.pv.justAnotherPV import JustAnotherPersistentVolume
 
 # service accounts
-from src.serviceAccounts.createServiceAccount import CreateServiceAccountViewAccess, CreateServiceAccountClusterAdminAccess
+from src.serviceAccounts.createServiceAccount import CreateServiceAccountViewAccess, CreateServiceAccountClusterAdminAccess, CreateServiceAccountViewPodsAndServicesOnly
 
 app = App()
 
@@ -45,5 +45,6 @@ IMVault(app, "vault-from-imports")
 # Service Accounts
 CreateServiceAccountViewAccess(app, 'nodelocal-ro', 'default')
 CreateServiceAccountClusterAdminAccess(app, 'nodelocal-admin', 'default')
+CreateServiceAccountViewPodsAndServicesOnly(app, 'nodelocal-ro-pods-services-only', 'default')
 
 app.synth()

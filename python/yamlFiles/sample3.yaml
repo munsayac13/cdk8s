@@ -1,0 +1,7 @@
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "nodes", "configmaps", "namespaces"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets", "statefulsets"]
+    verbs: ["get", "list", "watch"]
