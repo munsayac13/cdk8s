@@ -19,7 +19,9 @@ from src.hashicorpVault.Vault import IMVault
 from src.storage.storageClass.localStorage import LocalStorageClass
 from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
 from src.storage.pv.valkeyPrimaryPV import ValkeyPrimaryPersistentVolume
+from src.storage.pv.kafkaPV import KafkaControllerPersistentVolume
 #from src.storage.pv.justAnotherPV import JustAnotherPersistentVolume
+
 
 # service accounts
 from src.serviceAccounts.createServiceAccount import CreateServiceAccountViewAccess, CreateServiceAccountClusterAdminAccess, CreateServiceAccountViewPodsAndServicesOnly
