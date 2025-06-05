@@ -16,10 +16,8 @@ from src.redis.Valkey import IMValkey
 from src.hashicorpVault.Vault import IMVault
 
 # storage
+from src.storage.pv.createPV import CreatePersistentVolume
 from src.storage.storageClass.localStorage import LocalStorageClass
-from src.storage.pv.redisMasterPV import RedisMasterPersistentVolume
-from src.storage.pv.valkeyPrimaryPV import ValkeyPrimaryPersistentVolume
-from src.storage.pv.kafkaPV import KafkaControllerPersistentVolume
 #from src.storage.pv.justAnotherPV import JustAnotherPersistentVolume
 
 
@@ -30,8 +28,12 @@ app = App()
 
 # Persisten Volumes
 LocalStorageClass(app, "local-storage-storageclass")
-RedisMasterPersistentVolume(app, "redis-master-pv")
 #JustAnotherPersistentVolume(app, "justanother-pv")
+
+CreatePersistentVolume(app, "valkey-primary-pv", "valkey-primary", "local-storage", 10)
+CreatePersistentVolume(app, "vault-pv", "vault", "local-storage", 10)
+CreatePersistentVolume(app, "kafka-controller-pv", "kafka-controller", "local-storage", 10)
+CreatePersistentVolume(app, "redis-master-pv", "redis-master", "local-storage", 10)
 
 # Helm and Deployments
 HelmExternalSecretsValues(app, "external-secrets-from-helm")
